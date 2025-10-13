@@ -1,8 +1,14 @@
 import React from "react";
 import NavBar from "./components/Navbar";
+import Hero from "./components/Hero";
 
 const App = () => {
-  return <NavBar></NavBar>;
+  return (
+    <main>
+      <NavBar />
+      <Hero />
+    </main>
+  );
 };
 
 export default App;
