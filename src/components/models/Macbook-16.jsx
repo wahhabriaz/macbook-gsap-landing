@@ -12,7 +12,7 @@ import React, { useEffect } from "react";
 import { useGLTF, useTexture } from "@react-three/drei";
 import useMacbookStore from "../../store";
 import { noChangeParts } from "../../constants/index";
-import { Color } from "three";
+import { Color, SRGBColorSpace } from "three";
 
 export default function MacbookModel16(props) {
   const { nodes, materials, scene } = useGLTF(
@@ -21,6 +21,8 @@ export default function MacbookModel16(props) {
   const { color } = useMacbookStore();
 
   const texture = useTexture("/screen.png");
+  texture.colorSpace = SRGBColorSpace;
+  texture.needsUpdate = true;
   useEffect(() => {
     scene.traverse((child) => {
       if (child.isMesh) {
